@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { enctype, method } from "$types/global";
+  import type { enctype, method } from "./types/global.ts";
 
   type btnType = "button" | "submit" | "reset";
   type popovertargetaction = "hide" | "show" | "toggle";

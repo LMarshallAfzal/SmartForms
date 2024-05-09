@@ -1,0 +1,1 @@
+export type InputType = "text" | "number" | "email" | "url" | "password" | "hidden" | "tel" | "hidden";
