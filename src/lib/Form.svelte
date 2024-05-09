@@ -2,6 +2,8 @@
   import type { enctype, method } from "./types/global.ts";
   import type { InputType } from "./types/input.ts";
 
+  type autoComplete = "on" | "off";
+
   interface FormConfig {
     inputs: InputProps[];
     buttons: ButtonProps[];
@@ -29,15 +31,15 @@
   import Input from "./Input.svelte";
   import Button from "./Button.svelte";
 
-  export let action = "";
-  export let autocomplete: "on" | "off" = "off";
+  export let action: string = "";
+  export let autocomplete: autoComplete = "off";
   export let enctype: enctype = "application/x-www-form-urlencoded";
   export let method: method = "post";
-  export let id = "";
-  export let name = "";
-  export let novalidate = false
-  export let rel = "";
-  export let target = "";
+  export let id: string = "";
+  export let name: string = "";
+  export let novalidate: boolean = false
+  export let rel: string = "";
+  export let target: string = "";
 
   export let config: FormConfig = {
     inputs: [],

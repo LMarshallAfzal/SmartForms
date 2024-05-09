@@ -2,21 +2,21 @@
   import type { enctype, method } from "./types/global.ts";
   import type { InputType } from "./types/input.js";
 
-  export let id = "";
-  export let name = ""
-  export let label = "";
+  export let id: string = "";
+  export let name: string = ""
+  export let label: string = "";
   export let type: InputType = "text";
-  export let placeholder = "";
-  export let form = "";
-  export let formaction = "";
+  export let placeholder: string = "";
+  export let form: string = "";
+  export let formaction: string = "";
   export let formenctype: enctype = "application/x-www-form-urlencoded";
   export let formmethod: method = "post";
-  export let formnovalidate = false;
-  export let required = false;
-  export let value = "";
-  export let classes = "";
+  export let formnovalidate: boolean = false;
+  export let required: boolean = false;
+  export let value: string = "";
+  export let classes: string = "";
 
-  const inputClasses = `${classes}`;
+  const inputClasses: string = `${classes}`;
 </script>
 
 <div>

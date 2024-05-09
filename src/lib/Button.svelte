@@ -5,21 +5,21 @@
   type popovertargetaction = "hide" | "show" | "toggle";
 
   export let type: btnType = "button";
-  export let classes = "";
-  export let disabled = false;
-  export let form = "";
-  export let formaction = "";
+  export let classes: string = "";
+  export let disabled: boolean = false;
+  export let form: string = "";
+  export let formaction: string = "";
   export let formenctype: enctype = "application/x-www-form-urlencoded";
   export let formmethod: method = "post";
   export let formnovalidate = false;
-  export let popovertarget = "";
+  export let popovertarget: string = "";
   export let popovertargetaction: popovertargetaction = "hide";
-  export let id = ""
-  export let name = ""; 
-  export let value = "";
-  export let ariaLabel = "";
+  export let id: string = ""
+  export let name: string = ""; 
+  export let value: string = "";
+  export let ariaLabel: string = "";
 
-  const buttonClasses = `${classes}`;
+  const buttonClasses: string = `${classes}`;
 </script>
 
 <button 
