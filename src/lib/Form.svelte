@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { enctype, method } from "./types/global.ts";
+  import type { popovertargetaction, btnType } from "./types/button.ts";
   import type { InputType } from "./types/input.ts";
 
   type autoComplete = "on" | "off";
@@ -10,6 +11,7 @@
   }
 
   interface InputProps {
+    label?: string;
     id?: string;
     name?: string;
     type?: InputType
@@ -25,7 +27,21 @@
   }
 
   interface ButtonProps {
-    // Define the properties for buttons
+    label?: string;
+    id?: string;
+    name?: string;
+    type?: btnType;
+    form?: string;
+    formaction?: string;
+    formenctype?: enctype;
+    formmethod?: method;
+    formnovalidate?: boolean;
+    disabled?: boolean;
+    popovertarget?: string;
+    popovertargetaction?: popovertargetaction;
+    value?: string;
+    ariaLabel?: string;
+    classes?: string;
   }
 
   import Input from "./Input.svelte";
@@ -79,7 +95,26 @@
     </div>
   {/each}
   <div>
-    <Button type="submit">Submit</Button>
+    {#each buttons as button}
+      <Button 
+        id={button.id}
+        name={button.name}
+        type={button.type}
+        classes={button.classes}
+        disabled={button.disabled}
+        form={button.form}
+        formaction={button.formaction}
+        formenctype={button.formenctype}
+        formmethod={button.formmethod}
+        formnovalidate={button.formnovalidate}
+        popovertarget={button.popovertarget}
+        popovertargetaction={button.popovertargetaction}
+        value={button.value}
+        ariaLabel={button.ariaLabel}
+      >
+        {button.label}
+      </Button>
+    {/each}
   </div>
 </form>
 

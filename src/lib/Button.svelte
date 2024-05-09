@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { enctype, method } from "./types/global.ts";
+  import type { popovertargetaction, btnType } from "./types/button.ts";
 
-  type btnType = "button" | "submit" | "reset";
-  type popovertargetaction = "hide" | "show" | "toggle";
+  
 
   export let type: btnType = "button";
   export let classes: string = "";
