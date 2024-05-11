@@ -1,51 +1,11 @@
 <script lang="ts">
-  import type { enctype, method } from "./types/global.ts";
-  import type { popovertargetaction, btnType } from "./types/button.ts";
-  import type { InputType } from "./types/input.ts";
-
-  type autoComplete = "on" | "off";
-
-  interface FormConfig {
-    inputs: InputProps[];
-    buttons: ButtonProps[];
-  }
-
-  interface InputProps {
-    label?: string;
-    id?: string;
-    name?: string;
-    type?: InputType
-    placeholder?: string;
-    form?: string;
-    formaction?: string;
-    formmethod?: method;
-    formenctype?: enctype;
-    formnovalidate?: boolean;
-    required?: boolean;
-    value?: string;
-    classes?: string;
-  }
-
-  interface ButtonProps {
-    label?: string;
-    id?: string;
-    name?: string;
-    type?: btnType;
-    form?: string;
-    formaction?: string;
-    formenctype?: enctype;
-    formmethod?: method;
-    formnovalidate?: boolean;
-    disabled?: boolean;
-    popovertarget?: string;
-    popovertargetaction?: popovertargetaction;
-    value?: string;
-    ariaLabel?: string;
-    classes?: string;
-  }
-
   import Input from "./Input.svelte";
   import Button from "./Button.svelte";
+
+  import type { enctype, method } from "./types/global.ts";
+  import type { FormConfig } from "./types/form.ts";
+
+  type autoComplete = "on" | "off";
 
   export let action: string = "";
   export let autocomplete: autoComplete = "off";

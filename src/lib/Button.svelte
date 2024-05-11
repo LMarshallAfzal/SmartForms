@@ -2,8 +2,6 @@
   import type { enctype, method } from "./types/global.ts";
   import type { popovertargetaction, btnType } from "./types/button.ts";
 
-  
-
   export let type: btnType = "button";
   export let classes: string = "";
   export let disabled: boolean = false;
