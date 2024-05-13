@@ -5,10 +5,8 @@
   export let type: btnType = "button";
   export let classes: string = "";
   export let disabled: boolean = false;
-  export let form: string = "";
   export let formaction: string = "";
   export let formenctype: enctype = "application/x-www-form-urlencoded";
-  export let formmethod: method = "post";
   export let formnovalidate = false;
   export let popovertarget: string = "";
   export let popovertargetaction: popovertargetaction = "hide";
@@ -23,11 +21,9 @@
 <button 
   {type} 
   class={buttonClasses}
-  form={form}
-  {formaction}
+  {disabled}
   {formenctype}
-  {formmethod} 
-  {disabled} 
+  {formaction}
   {formnovalidate}
   {popovertarget}
   {popovertargetaction}
@@ -37,5 +33,5 @@
   aria-label={ariaLabel}
   on:click
 >
-  <slot>Default button label</slot>
+  <slot>SmartForm button</slot>
 </button>

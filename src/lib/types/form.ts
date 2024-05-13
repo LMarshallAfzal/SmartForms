@@ -5,3 +5,8 @@ export interface FormConfig {
     inputs: InputProps[];
     buttons: ButtonProps[];
 }
+
+export interface FormData {
+    email: string;
+    password: string;
+}

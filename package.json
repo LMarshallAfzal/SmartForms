@@ -38,5 +38,9 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"bootstrap": "^5.3.3",
+		"sqlite3": "^5.1.7"
+	}
 }

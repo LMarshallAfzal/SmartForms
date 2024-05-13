@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { enhance } from "$app/forms";
   import Input from "./Input.svelte";
   import Button from "./Button.svelte";
 
@@ -35,46 +36,55 @@
   {action} 
   {rel}
   {target}
+  use:enhance
 >
-  {#each inputs as input}
-    <div>
-      <Input
-        id={input.id}
-        name={input.name}
-        type={input.type}
-        placeholder={input.placeholder}
-        form={input.form}
-        formaction={input.formaction}
-        formmethod={input.formmethod}
-        formenctype={input.formenctype}
-        formnovalidate={input.formnovalidate}
-        required={input.required}
-        value={input.value}
-        classes={input.classes}
-      />
-    </div>
-  {/each}
-  <div>
-    {#each buttons as button}
-      <Button 
-        id={button.id}
-        name={button.name}
-        type={button.type}
-        classes={button.classes}
-        disabled={button.disabled}
-        form={button.form}
-        formaction={button.formaction}
-        formenctype={button.formenctype}
-        formmethod={button.formmethod}
-        formnovalidate={button.formnovalidate}
-        popovertarget={button.popovertarget}
-        popovertargetaction={button.popovertargetaction}
-        value={button.value}
-        ariaLabel={button.ariaLabel}
-      >
-        {button.label}
-      </Button>
+  <div class="form-padding">
+    {#each inputs as input}
+      <div class="input-padding">
+        <Input
+          id={input.id}
+          label={input.label}
+          name={input.name}
+          type={input.type}
+          placeholder={input.placeholder}
+          formenctype={input.formenctype}
+          formnovalidate={input.formnovalidate}
+          required={input.required}
+          value={input.value}
+          classes={input.classes}
+        />
+      </div>
     {/each}
+    <div>
+      {#each buttons as button}
+        <Button 
+          id={button.id}
+          name={button.name}
+          type={button.type}
+          classes={button.classes}
+          disabled={button.disabled}
+          formnovalidate={button.formnovalidate}
+          formenctype={button.formenctype}
+          popovertarget={button.popovertarget}
+          popovertargetaction={button.popovertargetaction}
+          value={button.value}
+          ariaLabel={button.ariaLabel}
+        >
+          {button.label}
+        </Button>
+      {/each}
+    </div>
   </div>
 </form>
 
+<style>
+  .input-padding {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .form-padding {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+</style>

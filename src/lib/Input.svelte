@@ -1,16 +1,14 @@
 <script lang="ts">
   import type { enctype, method } from "./types/global.ts";
-  import type { InputType } from "./types/input.js";
+  import type { InputType } from "./types/input.ts";
 
   export let id: string = "";
   export let name: string = ""
   export let label: string = "";
   export let type: InputType = "text";
   export let placeholder: string = "";
-  export let form: string = "";
   export let formaction: string = "";
   export let formenctype: enctype = "application/x-www-form-urlencoded";
-  export let formmethod: method = "post";
   export let formnovalidate: boolean = false;
   export let required: boolean = false;
   export let value: string = "";
@@ -26,10 +24,8 @@
     {name}
     {...{type}}
     {placeholder}
-    {form}
-    {formaction}
-    {formmethod}
     {formenctype}
+    {formaction}
     {formnovalidate}
     {required}
     bind:value

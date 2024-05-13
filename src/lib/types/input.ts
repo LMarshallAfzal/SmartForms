@@ -1,4 +1,4 @@
-import type { enctype, method } from "./global.js";
+import type { enctype, method } from "./global.ts";
 
 export type InputType = "text" | "number" | "email" | "url" | "password" | "hidden" | "tel" | "hidden";
 
