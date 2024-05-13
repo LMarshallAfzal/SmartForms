@@ -14,6 +14,7 @@
   export let name: string = ""; 
   export let value: string = "";
   export let ariaLabel: string = "";
+  export let onClick: (() => void) | undefined = undefined;
 
   const buttonClasses: string = `${classes}`;
 </script>
@@ -31,7 +32,7 @@
   {name}
   {value}
   aria-label={ariaLabel}
-  on:click
+  on:click={onClick}
 >
   <slot>SmartForm button</slot>
 </button>

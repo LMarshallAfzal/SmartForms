@@ -17,6 +17,7 @@
   export let novalidate: boolean = false
   export let rel: string = "";
   export let target: string = "";
+  export let onSubmit = () => {};
 
   export let config: FormConfig = {
     inputs: [],
@@ -37,6 +38,7 @@
   {rel}
   {target}
   use:enhance
+  on:submit|preventDefault={onSubmit}
 >
   <div class="form-padding">
     {#each inputs as input}
@@ -69,6 +71,7 @@
           popovertargetaction={button.popovertargetaction}
           value={button.value}
           ariaLabel={button.ariaLabel}
+          onClick={button.onClick}
         >
           {button.label}
         </Button>

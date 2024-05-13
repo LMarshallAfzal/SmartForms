@@ -19,4 +19,5 @@ export interface ButtonProps {
     value?: string;
     ariaLabel?: string;
     classes?: string;
+    onClick?: () => void;
 }
