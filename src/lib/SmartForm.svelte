@@ -54,6 +54,7 @@
           required={input.required}
           value={input.value}
           classes={input.classes}
+          validationRules={input.validationRules}
         />
       </div>
     {/each}

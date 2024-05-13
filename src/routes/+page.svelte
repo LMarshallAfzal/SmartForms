@@ -13,22 +13,52 @@
     const config: FormConfig = {
         inputs: [
             {
-                id: 'email',
+                id: 'fname-input',
+                name: 'fname',
+                label: 'Firstname',
+                type: 'text',
+                required: true,
+                placeholder: 'John',
+                classes: 'form-control',
+                value: password,
+                validationRules: {
+                    required: true
+                }
+            },
+            {
+                id: 'email-input',
                 name: 'email',
-                label: 'text',
+                label: 'Email',
                 type: 'email',
+                required: true,
                 placeholder: 'Email',
                 classes: 'form-control',
                 value: email,
+                validationRules: {
+                    email: true
+                }
             },
             {
                 id: 'password',
                 name: 'password',
                 label: 'Password',
                 type: 'password',
+                required: true,
                 placeholder: 'Password',
                 classes: 'form-control',
                 value: password,
+                validationRules: {
+                    required: true,
+                    // min: 8,
+                    // max: 25,
+                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,16}$/,
+                    // characterSets: [
+                    //     {characters: 'A-Z', minOccurrences: 1},
+                    //     {characters: '0-9', minOccurrences: 1},
+                    //     {characters: '!@#$%^&*', minOccurrences: 1},
+                    // ]
+                    
+                }
             }
         ],
         buttons: [
@@ -42,7 +72,7 @@
     }
 </script>
 
-<h1>Welcome to Super Forms libary</h1>
+<h1>Welcome to Super Forms library</h1>
 <p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 

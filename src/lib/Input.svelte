@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { enctype, method } from "./types/global.ts";
-  import type { InputType } from "./types/input.ts";
+  import type { enctype } from "./types/global.ts";
+  import type { inputType, ValidationRules } from "./types/input.ts";
 
   export let id: string = "";
   export let name: string = ""
   export let label: string = "";
-  export let type: InputType = "text";
+  export let type: inputType = "text";
   export let placeholder: string = "";
   export let formaction: string = "";
   export let formenctype: enctype = "application/x-www-form-urlencoded";
@@ -13,12 +13,103 @@
   export let required: boolean = false;
   export let value: string = "";
   export let classes: string = "";
+  export let validationRules: ValidationRules = {};
 
   const inputClasses: string = `${classes}`;
+
+  let errors: string[] = [];
+  
+  function validate() {
+    errors = [];
+    
+    if (validationRules.required && !value) {
+      errors.push(`${label} is required`);
+    }
+
+    if (validationRules.min && value.length < validationRules.min) {
+      errors.push(`Min length is ${validationRules.min}`);
+    }
+
+    if (validationRules.max && value.length > validationRules.max) {
+      errors.push(`Max length is ${validationRules.max}`);
+    }
+
+    if (validationRules.email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        errors.push("Invalid email address")
+      }
+    }
+
+    if (validationRules.characterSets) {
+      validationRules.characterSets?.forEach(rule => {
+        const characterSetRegex = new RegExp(`[${rule.characters}]`, 'g');
+        const matches = value.match(characterSetRegex) || [];
+        if (matches.length < (rule.minOccurrences || 1)) {
+          errors.push(`Must include at least ${rule.minOccurrences || 1} character(s) from: ${rule.characters}`)
+        }
+      })
+    }
+
+    if (validationRules.pattern) {
+      const regex = validationRules.pattern;
+      const patternString = regex.source;
+      if (!regex.test(value)) {
+        let patternErrors: string[] = [];
+
+        // Check length
+        const lengthMatch = regex.source.match(/\{(\d+)(?:,(\d+))?\}/);
+        if (lengthMatch) {
+          const minLength = parseInt(lengthMatch[1]);
+          const maxLength = lengthMatch[2] ? parseInt(lengthMatch[2]) : undefined;
+
+          if (value.length < minLength) {
+            patternErrors.push(`Min length is ${minLength}`);
+          }
+          if (maxLength && value.length > maxLength) {
+            patternErrors.push(`Min length is ${maxLength}`);
+          }
+        }
+
+        // Check character sets
+        const lowercaseMatch = value.match(/[a-z]/);
+        const uppercaseMatch = value.match(/[A-Z]/);
+        const digitMatch = value.match(/\d/);
+        const symbolMatch = value.match(/[!@#$%^&*]/);
+
+        if (!lowercaseMatch) {
+          patternErrors.push('Must include at least one lowercase letter');
+        }
+        if (!uppercaseMatch) {
+          patternErrors.push('Must include at least one uppercase letter');
+        }
+        if (!digitMatch) {
+          patternErrors.push('Must include at least one number');
+        }
+        if (!symbolMatch) {
+          patternErrors.push('Must include at least one symbol');
+        }
+
+        if (patternErrors.length > 0) {
+          errors = [...patternErrors, ...errors];
+        } else {
+          errors.push('Invalid format');
+        }
+      }
+    }
+  }
+
+  function handleBlur() {
+    validate();
+  }
+
+  function handleInput() {
+    validate();
+  }
 </script>
 
 <div>
-  <label for={id}>{label}</label>
+  <label for={id}>{label}{required ? "*" : ""}</label>
   <input
     {id}
     {name}
@@ -30,5 +121,15 @@
     {required}
     bind:value
     class={inputClasses}
+    on:blur={handleBlur}
+    on:input={handleInput}
   />
+
+  {#if errors.length > 0}
+    <ul class="error-list">
+      {#each errors as error}
+        <li>{error}</li>
+      {/each}
+    </ul>
+  {/if}
 </div>
