@@ -1,33 +1,29 @@
-# create-svelte
+# SmartForms
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+by [@LMarshallAfzal](https/github.com/lmarshallafzal)
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+<!-- TODO: Tech stack icons go here for technologies used -->
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Generate Dynamic forms for svelte.
+- Apply styles and layout to the generated forms.
+- Implement complex input validation seamlessly.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Documentation
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+TBD
+<!-- TODO: Write documentation -->
 
-## Developing
+## Installation
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+TBD
+<!-- TODO: Write installation -->
 
-```bash
-npm run dev
+## Usage
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+TBD
+<!-- TODO: Write usage -->
 
 ## Building
 
