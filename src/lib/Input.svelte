@@ -43,10 +43,18 @@
 
     if (validationRules.characterSets) {
       validationRules.characterSets?.forEach(rule => {
-        const characterSetRegex = new RegExp(`[${rule.characters}]`, 'g');
-        const matches = value.match(characterSetRegex) || [];
-        if (matches.length < (rule.minOccurrences || 1)) {
-          errors.push(`Must include at least ${rule.minOccurrences || 1} character(s) from: ${rule.characters}`)
+        if (rule.exc) {
+          const excludeRegex = new RegExp(`[${rule.chars}]`, 'g');
+          const matches = value.match(excludeRegex) || [];
+          if (matches.length > 0) {
+            errors.push(`Must not include any character(s) from: ${rule.chars}`);
+          }
+        } else {
+          const characterSetRegex = new RegExp(`[${rule.chars}]`, 'g');
+          const matches = value.match(characterSetRegex) || [];
+          if (matches.length < (rule.min || 1)) {
+            errors.push(`Must include at least ${rule.min || 1} character(s) from: ${rule.chars}`)
+          }
         }
       })
     }

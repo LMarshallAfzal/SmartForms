@@ -29,6 +29,7 @@ export interface ValidationRules {
 }
 
 export interface CharSet {
-    characters: string;
-    minOccurrences?: number;
+    chars: string;
+    exc?: boolean;
+    min?: number;
 }

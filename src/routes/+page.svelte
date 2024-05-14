@@ -49,14 +49,15 @@
                 value: password,
                 validationRules: {
                     required: true,
-                    // min: 8,
-                    // max: 25,
-                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,16}$/,
-                    // characterSets: [
-                    //     {characters: 'A-Z', minOccurrences: 1},
-                    //     {characters: '0-9', minOccurrences: 1},
-                    //     {characters: '!@#$%^&*', minOccurrences: 1},
-                    // ]
+                    min: 8,
+                    max: 25,
+                    // pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[A-Za-z\\d!@#$%^&*]{8,16}$/,
+                    characterSets: [
+                        {chars: 'A-Z', min: 1},
+                        {chars: '0-9', min: 1},
+                        {chars: '!@#$%^&*', min: 1},
+                        {chars: '-', exc: true},
+                    ]
                     
                 }
             }
