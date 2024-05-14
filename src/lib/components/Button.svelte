@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { enctype, method } from "./types/global.ts";
-  import type { popovertargetaction, btnType } from "./types/button.ts";
+  import type { enctype } from "../types/global.ts";
+  import type { popovertargetaction, btnType } from "../types/button.ts";
 
   export let type: btnType = "button";
   export let classes: string = "";
