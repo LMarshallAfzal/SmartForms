@@ -1,4 +1,6 @@
 <script lang="ts">
+  import ValidationError from "./ValidationError.svelte";
+
   import type { enctype } from "./types/global.ts";
   import type { inputType, ValidationRules } from "./types/input.ts";
 
@@ -115,8 +117,6 @@
           }
         }
 
-        console.log(patternErrors)
-
         if (patternErrors.length > 0) {
           errors = [...patternErrors, ...errors];
         } else {
@@ -152,11 +152,5 @@
     on:input={handleInput}
   />
 
-  {#if errors.length > 0}
-    <ul class="error-list">
-      {#each errors as error}
-        <li>{error}</li>
-      {/each}
-    </ul>
-  {/if}
+  <ValidationError {errors}/>
 </div>
