@@ -16,6 +16,7 @@ export interface InputProps {
     required?: boolean;
     value?: string;
     classes?: string;
+    styles?: string;
     validationRules?: ValidationRules;
 }
 

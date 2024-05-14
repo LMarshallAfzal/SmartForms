@@ -40,24 +40,25 @@
   use:enhance
   on:submit|preventDefault={onSubmit}
 >
-  <div class="form-padding">
-    {#each inputs as input}
-      <div class="input-padding">
-        <Input
-          id={input.id}
-          label={input.label}
-          name={input.name}
-          type={input.type}
-          placeholder={input.placeholder}
-          formenctype={input.formenctype}
-          formnovalidate={input.formnovalidate}
-          required={input.required}
-          value={input.value}
-          classes={input.classes}
-          validationRules={input.validationRules}
-        />
-      </div>
-    {/each}
+  <div class="form-padding" >
+      {#each inputs as input}
+        <div class="input-padding">
+          <Input
+            id={input.id}
+            label={input.label}
+            name={input.name}
+            type={input.type}
+            placeholder={input.placeholder}
+            formenctype={input.formenctype}
+            formnovalidate={input.formnovalidate}
+            required={input.required}
+            value={input.value}
+            classes={input.classes}
+            styles={input.styles}
+            validationRules={input.validationRules}
+          />
+        </div>
+      {/each}
     <div>
       {#each buttons as button}
         <Button 
@@ -82,6 +83,7 @@
 </form>
 
 <style>
+
   .input-padding {
     padding-top: 5px;
     padding-bottom: 5px;

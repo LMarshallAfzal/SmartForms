@@ -16,6 +16,7 @@
   export let value: string = "";
   export let classes: string = "";
   export let validationRules: ValidationRules = {};
+  export let styles: string = "";
 
   const inputClasses: string = `${classes}`;
 
@@ -101,7 +102,6 @@
         if (symbolsMatch) {
           const symbols = Array.from(new Set(symbolsMatch)).join('');
           const symbolMatch = value.match(new RegExp(/[${symbols}]/));
-          console.log(symbolMatch)
           if (!symbolMatch) {
             patternErrors.push(`Must include at least one symbol from: ${symbols}`);
           }
@@ -135,7 +135,7 @@
   }
 </script>
 
-<div>
+<div style={styles}>
   <label for={id}>{label}{required ? "*" : ""}</label>
   <input
     {id}
@@ -148,6 +148,7 @@
     {required}
     bind:value
     class={inputClasses}
+    style={styles}
     on:blur={handleBlur}
     on:input={handleInput}
   />
