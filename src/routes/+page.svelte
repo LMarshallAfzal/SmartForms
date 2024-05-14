@@ -1,6 +1,6 @@
 <script lang="ts">
     import 'bootstrap/dist/css/bootstrap.min.css';
-    import SmartForm from "$lib/SmartForm.svelte";
+    import SmartForm from "$lib/components/SmartForm.svelte";
 
     import type { FormConfig, FormData } from "$lib/types/form.ts";
 

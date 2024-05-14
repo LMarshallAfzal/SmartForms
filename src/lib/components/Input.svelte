@@ -1,8 +1,8 @@
 <script lang="ts">
   import ValidationError from "./ValidationError.svelte";
 
-  import type { enctype } from "./types/global.ts";
-  import type { inputType, ValidationRules } from "./types/input.ts";
+  import type { enctype } from "../types/global.ts";
+  import type { inputType, ValidationRules } from "../types/input.ts";
 
   export let id: string = "";
   export let name: string = ""

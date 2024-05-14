@@ -3,8 +3,8 @@
   import Input from "./Input.svelte";
   import Button from "./Button.svelte";
 
-  import type { enctype, method } from "./types/global.ts";
-  import type { FormConfig } from "./types/form.ts";
+  import type { enctype, method } from "../types/global.ts";
+  import type { FormConfig } from "../types/form.ts";
 
   type autoComplete = "on" | "off";
 
