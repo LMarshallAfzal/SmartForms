@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import Input from "./Input.svelte";
+  import Input from "./fields/Input.svelte";
   import Button from "./Button.svelte";
 
   import type { enctype, method } from "../types/global.ts";
