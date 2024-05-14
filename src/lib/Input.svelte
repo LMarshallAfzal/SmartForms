@@ -83,7 +83,6 @@
         const lowercaseMatch = value.match(/[a-z]/);
         const uppercaseMatch = value.match(/[A-Z]/);
         const digitMatch = value.match(/\d/);
-        const symbolMatch = value.match(/[!@#$%^&*]/);
 
         if (!lowercaseMatch) {
           patternErrors.push('Must include at least one lowercase letter');
@@ -94,9 +93,29 @@
         if (!digitMatch) {
           patternErrors.push('Must include at least one number');
         }
-        if (!symbolMatch) {
-          patternErrors.push('Must include at least one symbol');
+
+        // Extract symbols from the regex pattern
+        const symbolsMatch = patternString.match(/(?!{\d+(?:,\d+)?}|\$\/|\?=\.|\[A-Z\])[^a-zA-Z\d\s]/g);
+        if (symbolsMatch) {
+          const symbols = Array.from(new Set(symbolsMatch)).join('');
+          const symbolMatch = value.match(new RegExp(/[${symbols}]/));
+          console.log(symbolMatch)
+          if (!symbolMatch) {
+            patternErrors.push(`Must include at least one symbol from: ${symbols}`);
+          }
         }
+
+        // Check excluded characters
+        const excludedCharsMatch = patternString.match(/\[(\^[^\]]+)\]/g);
+        if (excludedCharsMatch) {
+          const excludedChars = excludedCharsMatch[0].slice(2, -1);
+          const excludedMatch = value.match(new RegExp(`[${excludedChars}]`));
+          if (excludedMatch) {
+            patternErrors.push(`Must not include any character(s) from: ${excludedChars}`);
+          }
+        }
+
+        console.log(patternErrors)
 
         if (patternErrors.length > 0) {
           errors = [...patternErrors, ...errors];
