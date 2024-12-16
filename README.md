@@ -12,12 +12,15 @@ by [@LMarshallAfzal](https/github.com/lmarshallafzal)
 
 ## Documentation
 
-TBD
+This svelte library provides a dynamic form generation system that allows for flexible and customisable form creation.
 <!-- TODO: Write documentation -->
 
 ## Installation
 
-TBD
+To install:
+```
+npm install smartforms
+```
 <!-- TODO: Write installation -->
 
 ## Usage

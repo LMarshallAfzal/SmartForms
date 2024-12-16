@@ -1,6 +1,14 @@
 {
-	"name": "smartforms",
+	"name": "@lmarshallafzal/smartforms",
 	"version": "0.0.1",
+	"description": "A dynamic Svelte form generator",
+	"keywords": ["svelte", "form", "generator", "smartforms", "smart"],
+	"author": "Leonard Marshall Afzal",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LMarshallAfzal/SmartForms"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -38,11 +46,5 @@
 		"vite": "^5.0.11",
 		"vitest": "^1.6.0"
 	},
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"type": "module",
-	"dependencies": {
-		"bootstrap": "^5.3.3",
-		"sqlite3": "^5.1.7"
-	}
+	"type": "module"
 }
