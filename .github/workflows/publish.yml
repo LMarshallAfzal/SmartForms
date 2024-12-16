@@ -38,7 +38,13 @@ jobs:
 
       - name: Display npm publish error logs
         if: steps.publish.outcome != 'success'
-        run: cat /home/runner/.npm/$(ls -t _logs/*.log | head -1)
+        run: |
+          log_file=$(ls -t /home/runner/.npm/_logs/*.log | head -1)
+          if [[ -n "$log_file" ]]; then # Check if log_file is not empty
+            cat "$log_file" || true
+          else
+            echo "No npm log file found."
+          fi
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
