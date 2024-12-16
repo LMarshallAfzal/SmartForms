@@ -30,9 +30,15 @@ jobs:
         run: npm run build
 
       - name: Publish to NPM
+        id: publish
         run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+        continue-on-error: true
+
+      - name: Display npm publish error logs
+        if: steps.publish.outcome != 'success'
+        run: cat /home/runner/.npm/_logs/$(ls -t /home/runner/.npm/_logs/*.log | head -1)
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
