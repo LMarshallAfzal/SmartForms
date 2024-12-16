@@ -38,7 +38,7 @@ jobs:
 
       - name: Display npm publish error logs
         if: steps.publish.outcome != 'success'
-        run: cat /home/runner/.npm/_logs/$(ls -t /home/runner/.npm/_logs/*.log | head -1)
+        run: cat /home/runner/.npm/$(ls -t _logs/*.log | head -1)
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
