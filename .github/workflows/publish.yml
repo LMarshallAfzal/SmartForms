@@ -36,14 +36,22 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
         continue-on-error: true
 
-      - name: Display npm publish error logs
+      - name: Handle NPM Publish Errors
         if: steps.publish.outcome != 'success'
         run: |
           log_file=$(ls -t /home/runner/.npm/_logs/*.log | head -1)
-          if [[ -n "$log_file" ]]; then # Check if log_file is not empty
-            cat "$log_file" || true
+          if [[ -n "$log_file" ]]; then
+            error_message=$(grep "You cannot publish over the previously published versions" "$log_file")
+            if [[ -n "$error_message" ]]; then
+              echo "::error::Version Conflict: $(echo "$error_message" | cut -d ':' -f 2-)"
+              exit 1 # Fail the workflow with a specific error message
+            else
+              cat "$log_file" || true # Display the full log if not a version conflict
+              exit 1
+            fi
           else
-            echo "No npm log file found."
+            echo "::error::NPM Publish failed, but no log file found."
+            exit 1
           fi
 
       - name: Create GitHub Release
