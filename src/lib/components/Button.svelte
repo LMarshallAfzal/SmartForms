@@ -8,9 +8,7 @@
   export let formaction: string = "";
   export let formenctype: enctype = "application/x-www-form-urlencoded";
   export let formnovalidate = false;
-  export let popovertarget: string = "";
-  export let popovertargetaction: popovertargetaction = "hide";
-  export let id: string = ""
+  export let id: string = "";
   export let name: string = ""; 
   export let value: string = "";
   export let ariaLabel: string = "";
@@ -26,8 +24,6 @@
   {formenctype}
   {formaction}
   {formnovalidate}
-  {popovertarget}
-  {popovertargetaction}
   {id}
   {name}
   {value}

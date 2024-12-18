@@ -1,17 +1,15 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
   import Input from "./fields/Input.svelte";
   import Button from "./Button.svelte";
 
-  import type { enctype, method } from "../types/global.ts";
+  // import type { method } from "../types/global.ts";
   import type { FormConfig } from "../types/form.ts";
 
   type autoComplete = "on" | "off";
 
   export let action: string = "";
   export let autocomplete: autoComplete = "off";
-  export let enctype: enctype = "application/x-www-form-urlencoded";
-  export let method: method = "post";
+  // export let method: method = "post";
   export let id: string = "";
   export let name: string = "";
   export let novalidate: boolean = false
@@ -32,12 +30,9 @@
   {novalidate}
   {name} 
   {id} 
-  {enctype} 
-  {method} 
   {action} 
   {rel}
   {target}
-  use:enhance
   on:submit|preventDefault={onSubmit}
 >
   <div class="form-padding" >
@@ -69,8 +64,6 @@
           disabled={button.disabled}
           formnovalidate={button.formnovalidate}
           formenctype={button.formenctype}
-          popovertarget={button.popovertarget}
-          popovertargetaction={button.popovertargetaction}
           value={button.value}
           ariaLabel={button.ariaLabel}
           onClick={button.onClick}
