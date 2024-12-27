@@ -9,7 +9,7 @@
   export let formenctype: enctype = "application/x-www-form-urlencoded";
   export let formnovalidate = false;
   export let id: string = "";
-  export let name: string = ""; 
+  export let name: string = "";
   export let value: string = "";
   export let ariaLabel: string = "";
   export let onClick: (() => void) | undefined = undefined;
@@ -17,8 +17,8 @@
   const buttonClasses: string = `${classes}`;
 </script>
 
-<button 
-  {type} 
+<button
+  {type}
   class={buttonClasses}
   {disabled}
   {formenctype}
