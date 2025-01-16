@@ -51,6 +51,8 @@
 		"mdsvex": "^0.12.3",
 		"postcss": "^8.5.1",
 		"publint": "^0.1.9",
+		"remark-containers": "^1.2.0",
+		"remark-github": "^12.0.0",
 		"svelte": "^5.0.0",
 		"svelte-check": "^3.6.0",
 		"tailwindcss": "^3.4.17",
@@ -59,5 +61,8 @@
 		"vite": "^6.0.0",
 		"vitest": "^1.6.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"-": "^0.0.1"
+	}
 }

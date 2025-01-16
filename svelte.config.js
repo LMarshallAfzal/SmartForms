@@ -1,10 +1,19 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import github from 'remark-containers';
+import containers from 'remark-github';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md', '.svx'],
+	remarkPlugins: [github, containers],
+	css: './src/styles/base.css',
+	highlight: {
+		alias: { javascript: "javascript" },
+		alias: { typescript: "typescript" },
+		alias: { bash: "bash" }
+	}
 }
 
 /** @type {import('@sveltejs/kit').Config} */
