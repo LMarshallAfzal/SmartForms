@@ -3,16 +3,16 @@
 
   const sidebarConfig = [
     { 
-      title: 'Get Started', 
+      title: 'Home', 
       href: '/', 
+    },
+    { 
+      title: 'Get Started', 
+      href: '/get-started', 
     },
     { 
       title: 'Help & Support', 
       href: '/support', 
-    },
-    { 
-      title: 'Projects', 
-      href: '/projects', 
     },
     { 
       title: 'Calendar', 
@@ -25,7 +25,7 @@
   ];
 </script>
 
-<div class="grid grid-cols-3 gap-y-5 overflow-y-auto bg-gray-900 px-6">
+<div class="grid grid-cols-2 gap-y-5 overflow-y-auto bg-gray-900 px-6">
   <nav class="flex flex-1 flex-col py-5">
     <ul role="list" class="flex flex-1 flex-col gap-y-7">
       <li>

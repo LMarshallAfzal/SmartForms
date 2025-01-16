@@ -1,8 +1,13 @@
 <script lang="ts">
-  import Welcome from './guides/welcome.md';
+  import Welcome from './docs/welcome.md';
 </script>
-<div>
-  <Welcome/>
+
+<div class="flex justify-center items-center min-h-screen"> 
+  <div class="max-w-screen-xl"> 
+    <div class="prose mx-auto text-center">
+      <Welcome />
+    </div>
+  </div>
 </div>
 
 
