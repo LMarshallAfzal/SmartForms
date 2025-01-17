@@ -5,6 +5,15 @@
   import Sidebar from "./Sidebar.svelte";
 </script>
 
+<svelte:head>
+    <title>@nil-/doc</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-solarizedlight.min.css"
+        rel="stylesheet"
+    />
+</svelte:head>
+
+
 <div class="flex flex-col min-h-screen">
 
   <Header />

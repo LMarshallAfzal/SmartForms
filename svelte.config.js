@@ -8,12 +8,6 @@ import containers from 'remark-github';
 const mdsvexOptions = {
 	extensions: ['.md', '.svx'],
 	remarkPlugins: [github, containers],
-	css: './src/styles/base.css',
-	highlight: {
-		alias: { javascript: "javascript" },
-		alias: { typescript: "typescript" },
-		alias: { bash: "bash" }
-	}
 }
 
 /** @type {import('@sveltejs/kit').Config} */
