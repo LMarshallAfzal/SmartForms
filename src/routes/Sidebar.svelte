@@ -11,8 +11,8 @@
       href: '/get-started', 
     },
     { 
-      title: 'Help & Support', 
-      href: '/support', 
+      title: 'Validation', 
+      href: '/validation', 
     },
     { 
       title: 'Calendar', 
