@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { page } from '$app/stores';
+  import { page } from '$app/state';
 
   const sidebarConfig = [
     { 
@@ -14,14 +14,6 @@
       title: 'Validation', 
       href: '/validation', 
     },
-    { 
-      title: 'Calendar', 
-      href: '/calendar', 
-    },
-    { 
-      title: 'Documents', 
-      href: '/documents', 
-    },
   ];
 </script>
 
@@ -34,7 +26,7 @@
             <li>
               <a
                 {href}
-                class={`group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold ${$page.url.pathname === href ? "bg-gray-800 text-white" : "text-gray-400"}`}
+                class={`group flex gap-x-3 rounded-md p-2 text-sm/6 font-semibold ${page.url.pathname === href ? "bg-gray-800 text-white" : "text-gray-400"}`}
               >
                 {title}
               </a>

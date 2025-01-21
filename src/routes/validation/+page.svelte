@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Validation from '../docs/Validation.md';
+  import Validation from '../docs/validation.md';
 </script>
 
 <div class="flex justify-center items-center min-h-screen"> 
