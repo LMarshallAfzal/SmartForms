@@ -1,12 +1,20 @@
 import type { enctype, method } from "./global.ts";
 
-export type inputType = "text" | "number" | "email" | "url" | "password" | "hidden" | "tel" | "hidden";
+export type inputType =
+    | "text"
+    | "number"
+    | "email"
+    | "url"
+    | "password"
+    | "hidden"
+    | "tel"
+    | "hidden";
 
 export interface InputProps {
     label?: string;
     id?: string;
     name?: string;
-    type?: inputType
+    type?: inputType;
     placeholder?: string;
     form?: string;
     formaction?: string;

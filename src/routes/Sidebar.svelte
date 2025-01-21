@@ -1,18 +1,18 @@
 <script lang="ts">
-  import { page } from '$app/state';
+  import { page } from "$app/state";
 
   const sidebarConfig = [
-    { 
-      title: 'Home', 
-      href: '/', 
+    {
+      title: "Home",
+      href: "/",
     },
-    { 
-      title: 'Get Started', 
-      href: '/get-started', 
+    {
+      title: "Get Started",
+      href: "/get-started",
     },
-    { 
-      title: 'Validation', 
-      href: '/validation', 
+    {
+      title: "Validation",
+      href: "/validation",
     },
   ];
 </script>

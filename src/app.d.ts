@@ -12,7 +12,7 @@
 
 // export {};
 
-declare module '*.md' {	
-	const component: any;
-	export default component;
+declare module "*.md" {
+    const component: any;
+    export default component;
 }
