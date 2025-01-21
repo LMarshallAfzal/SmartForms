@@ -1,0 +1,24 @@
+name: Branch Protection
+
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch rules
+        run: |
+          BASE_BRANCH="${{ github.base_ref }}"
+          HEAD_BRANCH="${{ github.head_ref }}"
+
+          if [ "$BASE_BRANCH" = "develop" ] && [ "$HEAD_BRANCH" != "develop" ]; then
+            echo "Error: Only 'develop' branch can be merged into 'main'"
+            exit 1
+          fi
+
+          if [ "$BASE_BRANCH" = "develop" ] && [{ ! "$HEAD_BRANCH" =~ "^feature/" }]; then
+            echo "Error: Only 'feature/*' branches can be merged into 'develop'"
+            exit 1
+          fi
