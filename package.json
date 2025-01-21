@@ -1,61 +1,77 @@
 {
-	"name": "@lmarshallafzal/smartforms",
-	"version": "0.1.1",
-	"description": "A dynamic Svelte form generator",
-	"keywords": [
-		"svelte",
-		"form",
-		"generator",
-		"smartforms",
-		"smart"
-	],
-	"author": "Leonard Marshall Afzal",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/LMarshallAfzal/SmartForms"
-	},
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build && npm run package",
-		"preview": "vite preview",
-		"package": "svelte-kit sync && svelte-package && publint",
-		"prepublishOnly": "npm run package",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"prepare": "husky"
-	},
-	"main": "./dist/index.js",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
-	},
-	"files": [
-		"dist",
-		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
-	],
-	"peerDependencies": {
-		"svelte": "^5.0.0"
-	},
-	"devDependencies": {
-		"@commitlint/cli": "^19.6.1",
-		"@commitlint/config-conventional": "^19.6.0",
-		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/kit": "^2.9.0",
-		"@sveltejs/package": "^2.0.0",
-		"@sveltejs/vite-plugin-svelte": "^5.0.0",
-		"@types/node": "^20.12.12",
-		"husky": "^9.1.7",
-		"publint": "^0.1.9",
-		"svelte": "^5.0.0",
-		"svelte-check": "^3.6.0",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^6.0.0",
-		"vitest": "^1.6.0"
-	},
-	"type": "module"
+    "name": "smartform",
+    "version": "0.1.1",
+    "description": "A dynamic Svelte form generator",
+    "keywords": [
+        "svelte",
+        "form",
+        "generator",
+        "smartforms",
+        "smart"
+    ],
+    "author": "Leonard Marshall Afzal",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LMarshallAfzal/SmartForms"
+    },
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build && npm run package",
+        "build:lib": "vite build --base=lib",
+        "build:docs": "vite build --base=routes",
+        "preview": "vite preview",
+        "package": "svelte-kit sync && svelte-package && publint",
+        "prepublishOnly": "npm run package",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+        "prepare": "husky"
+    },
+    "main": "./dist/index.js",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "svelte": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "!dist/**/*.test.*",
+        "!dist/**/*.spec.*"
+    ],
+    "peerDependencies": {
+        "svelte": "^5.0.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^19.6.1",
+        "@commitlint/config-conventional": "^19.6.0",
+        "@sveltejs/adapter-auto": "^4.0.0",
+        "@sveltejs/kit": "^2.9.0",
+        "@sveltejs/package": "^2.0.0",
+        "@sveltejs/vite-plugin-svelte": "^5.0.0",
+        "@tailwindcss/typography": "^0.5.16",
+        "@types/node": "^20.12.12",
+        "autoprefixer": "^10.4.20",
+        "husky": "^9.1.7",
+        "install": "^0.13.0",
+        "mdsvex": "^0.12.3",
+        "postcss": "^8.5.1",
+        "prettier": "^3.4.2",
+        "prettier-plugin-svelte": "^3.3.3",
+        "prismjs": "^1.29.0",
+        "publint": "^0.1.9",
+        "remark-containers": "^1.2.0",
+        "remark-github": "^12.0.0",
+        "svelte": "^5.0.0",
+        "svelte-check": "^3.6.0",
+        "tailwindcss": "^3.4.17",
+        "tslib": "^2.4.1",
+        "typescript": "^5.0.0",
+        "vite": "^6.0.0",
+        "vitest": "^1.6.0"
+    },
+    "type": "module",
+    "dependencies": {
+        "-": "^0.0.1"
+    }
 }

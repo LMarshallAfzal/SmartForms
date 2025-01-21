@@ -1,6 +1,6 @@
 name: Branch Protection
 
-on: 
+on:
   pull_request:
     types: [opened, synchronize, reopened]
 

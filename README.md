@@ -13,19 +13,23 @@ by [@LMarshallAfzal](https/github.com/lmarshallafzal)
 ## Documentation
 
 This svelte library provides a dynamic form generation system that allows for flexible and customisable form creation.
+
 <!-- TODO: Write documentation -->
 
 ## Installation
 
 To install:
+
 ```
 npm install smartforms
 ```
+
 <!-- TODO: Write installation -->
 
 ## Usage
 
 TBD
+
 <!-- TODO: Write usage -->
 
 ## Building

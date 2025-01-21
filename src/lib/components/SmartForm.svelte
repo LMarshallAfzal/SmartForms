@@ -12,7 +12,7 @@
   // export let method: method = "post";
   export let id: string = "";
   export let name: string = "";
-  export let novalidate: boolean = false
+  export let novalidate: boolean = false;
   export let rel: string = "";
   export let target: string = "";
   export let onSubmit = () => {};
@@ -20,43 +20,43 @@
   export let config: FormConfig = {
     inputs: [],
     buttons: [],
-  }
+  };
 
   const { inputs, buttons } = config;
 </script>
 
-<form 
-  {autocomplete} 
+<form
+  {autocomplete}
   {novalidate}
-  {name} 
-  {id} 
-  {action} 
+  {name}
+  {id}
+  {action}
   {rel}
   {target}
   on:submit|preventDefault={onSubmit}
 >
-  <div class="form-padding" >
-      {#each inputs as input}
-        <div class="input-padding">
-          <Input
-            id={input.id}
-            label={input.label}
-            name={input.name}
-            type={input.type}
-            placeholder={input.placeholder}
-            formenctype={input.formenctype}
-            formnovalidate={input.formnovalidate}
-            required={input.required}
-            value={input.value}
-            classes={input.classes}
-            styles={input.styles}
-            validationRules={input.validationRules}
-          />
-        </div>
-      {/each}
+  <div class="form-padding">
+    {#each inputs as input}
+      <div class="input-padding">
+        <Input
+          id={input.id}
+          label={input.label}
+          name={input.name}
+          type={input.type}
+          placeholder={input.placeholder}
+          formenctype={input.formenctype}
+          formnovalidate={input.formnovalidate}
+          required={input.required}
+          value={input.value}
+          classes={input.classes}
+          styles={input.styles}
+          validationRules={input.validationRules}
+        />
+      </div>
+    {/each}
     <div>
       {#each buttons as button}
-        <Button 
+        <Button
           id={button.id}
           name={button.name}
           type={button.type}
@@ -76,7 +76,6 @@
 </form>
 
 <style>
-
   .input-padding {
     padding-top: 5px;
     padding-bottom: 5px;
