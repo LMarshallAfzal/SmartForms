@@ -27,18 +27,18 @@ jobs:
 
       - name: Move documentation website
         run: |
-          git checkout -B production
+          git checkout -B main
           git add -A
           git commit -m "Deploy documentation website"
-          git push origin production
+          git push origin main
 
       - name: Configure GitHub Pages (in GitHub Settings)
         uses: actions/github-script@v6
         with:
           script: |
-            github.context.payload.repository.default_branch = 'production';
+            github.context.payload.repository.default_branch = 'main';
             github.rest.repos.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              default_branch: 'production'
+              default_branch: 'main'
             });

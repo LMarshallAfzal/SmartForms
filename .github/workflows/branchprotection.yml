@@ -13,12 +13,12 @@ jobs:
           BASE_BRANCH="${{ github.base_ref }}"
           HEAD_BRANCH="${{ github.head_ref }}"
 
-          if [ "$BASE_BRANCH" = "develop" ] && [ "$HEAD_BRANCH" != "develop" ]; then
-            echo "Error: Only 'develop' branch can be merged into 'main'"
+          if [ "$BASE_BRANCH" = "main" ] && [[ "$HEAD_BRANCH" != feature/* ]] && [ "$HEAD_BRANCH" != "hotfix/*" ] && [ "$HEAD_BRANCH" != "release/*" ]; then
+            echo "Error: Only 'develop', 'hotifx/*' and 'release/*' branch can be merged into 'main'"
             exit 1
           fi
 
-          if [ "$BASE_BRANCH" = "develop" ] && [{ ! "$HEAD_BRANCH" =~ "^feature/" }]; then
-            echo "Error: Only 'feature/*' branches can be merged into 'develop'"
+          if [ "$BASE_BRANCH" = "develop" ] && [ "$HEAD_BRANCH" != "feature/*" ] && [ "$HEAD_BRANCH" != "hotfix/*" ]; then
+            echo "Error: Only 'feature/*' and 'hotifx/*' branches can be merged into 'develop'"
             exit 1
           fi
