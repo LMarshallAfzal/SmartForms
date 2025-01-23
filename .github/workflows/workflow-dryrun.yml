@@ -1,0 +1,56 @@
+name: Dry Run
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+jobs:
+  dry-run-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package (dry run)
+        run: npm run build
+        env:
+          DRY_RUN: "true"
+
+      - name: Simulate NPM Publish
+        run: |
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "**Dry Run:** This workflow would normally publish to NPM."
+          fi
+
+  dry-run-deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies (documentation only)
+        run: npm ci --prefix=src/routes
+
+      - name: Build documentation website (dry run)
+        run: npm run build:docs
+        env:
+          DRY_RUN: "true"
+
+      - name: Simulate Documentation Deployment
+        run: |
+          if [[ "$DRY_RUN" == "true" ]]; then
+            echo "**Dry Run:** This workflow would normally deploy the documentation website to GitHub Pages."
+          fi
