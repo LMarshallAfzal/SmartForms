@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <img alt="Logo" src="/src/assets/images/logo-lg-black.png" />
+  <img alt="Logo" src="/images/logo-lg-black.png" />
 </div>
 
 Superform is a powerful inutitive form library for building complex and customisable forms within your svelte applications. Easily create forms with data validation, input masking and conditional logic
