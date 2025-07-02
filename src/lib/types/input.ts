@@ -1,6 +1,13 @@
+import type { FullAutoFill } from "svelte/elements";
 import type { enctype, method } from "./global.ts";
 
-export type inputType = "text" | "number" | "email" | "url" | "password" | "hidden" | "tel" | "hidden";
+export type inputType = "text" | "number" | "email" | "url" | "password" | "hidden" | "tel";
+
+export interface ComboboxOption {
+    value: string;
+    label?: string;
+    disabled?: boolean;
+}
 
 export interface InputProps {
     label?: string;
@@ -18,6 +25,13 @@ export interface InputProps {
     classes?: string;
     styles?: string;
     validationRules?: ValidationRules;
+    isCombobox?: boolean;
+    options?: string[] | ComboboxOption[];
+    disabled?: boolean;
+    readonly?: boolean;
+    autocomplete?: FullAutoFill;
+    list?: string;
+    size?: number;
 }
 
 export interface ValidationRules {

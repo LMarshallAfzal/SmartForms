@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { enctype } from "../../types/global.ts";
+  import type { ComboboxOption } from "../../types/input.ts";
   import type { FullAutoFill } from "svelte/elements";
 
   export let id: string = "";
@@ -13,7 +14,7 @@
   export let value: string = "";
   export let classes: string = "";
   export let styles: string = "";
-  export let options: string[] = [];
+  export let options: string[] | ComboboxOption[] = [];
   export let disabled: boolean = false;
   export let readonly: boolean = false;
   export let autocomplete: FullAutoFill = "off";
@@ -51,7 +52,13 @@
   {#if options.length > 0}
     <datalist id={datalistId}>
       {#each options as option}
-        <option value={option}>{option}</option>
+        {#if typeof option == "string"}
+          <option value={option}>{option}</option>
+        {:else}
+          <option value={option.value} disabled={option.disabled}
+            >{option.label || option.value}</option
+          >
+        {/if}
       {/each}
     </datalist>
   {/if}
